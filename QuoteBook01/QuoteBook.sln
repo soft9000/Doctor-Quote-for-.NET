@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoteBook", "QuoteBook.csproj", "{3D1561A2-A3FB-4E14-85BB-977582B19C14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NojQuote4", "..\NojQuote4\NojQuote4.csproj", "{AE0B2E5F-F471-4140-975E-356C002FA85E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D1561A2-A3FB-4E14-85BB-977582B19C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1561A2-A3FB-4E14-85BB-977582B19C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1561A2-A3FB-4E14-85BB-977582B19C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1561A2-A3FB-4E14-85BB-977582B19C14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE0B2E5F-F471-4140-975E-356C002FA85E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE0B2E5F-F471-4140-975E-356C002FA85E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE0B2E5F-F471-4140-975E-356C002FA85E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE0B2E5F-F471-4140-975E-356C002FA85E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {479B385D-8642-4186-B098-0C8A35FA2DBA}
+	EndGlobalSection
+EndGlobal
