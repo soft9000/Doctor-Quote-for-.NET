@@ -151,7 +151,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NojQuote4\NojQuote4.csproj">
+    <ProjectReference Include="..\NojQuote4\NojQuote4.csproj">
       <Project>{ae0b2e5f-f471-4140-975e-356c002fa85e}</Project>
       <Name>NojQuote4</Name>
     </ProjectReference>
