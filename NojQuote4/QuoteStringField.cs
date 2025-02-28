@@ -10,6 +10,7 @@ namespace Quote2020
         {
             List<string> result = new List<string>();
             SqliteConnection conn = QuoteBook.Connect();
+            if (conn == null) return new List<string>();
             conn.Open();
             try
             {

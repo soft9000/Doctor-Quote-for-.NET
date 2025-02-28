@@ -38,6 +38,11 @@ namespace Quote2020
         public static bool Read(Int64 zid, out Quote quote)
         {
             SqliteConnection conn = Connect();
+            if (conn == null)
+            {
+                quote = new Quote();
+                return false;
+            }
             conn.Open();
             try
             {
@@ -66,6 +71,7 @@ namespace Quote2020
         public static bool SetStateReady(Int64 zid)
         {
             SqliteConnection conn = Connect();
+            if (conn == null) return false;
             conn.Open();
             SqliteTransaction trans = conn.BeginTransaction();
             bool br = Update(conn, trans, "UPDATE  {QuoteTable} SET STATE = '{STATE_READY}' WHERE ID = {zid};");
@@ -78,6 +84,7 @@ namespace Quote2020
         public static bool SetGbuCode(long zid, string gbucode)
         {
             SqliteConnection conn = Connect();
+            if (conn == null) return false;
             conn.Open();
             SqliteTransaction trans = conn.BeginTransaction();
             bool br = Update(conn, trans, "UPDATE  {QuoteTable} SET GBUCODE = '{gbucode}' WHERE ID = {zid};");
@@ -95,6 +102,7 @@ namespace Quote2020
         public static bool SetState(long zid, string BookStateCode)
         {
             SqliteConnection conn = Connect();
+            if (conn == null) return false;
             conn.Open();
             SqliteTransaction trans = conn.BeginTransaction();
             bool br = Update(conn, trans, "UPDATE  {QuoteTable} SET STATE = '{BookStateCode}' WHERE ID = {zid};");
@@ -165,6 +173,7 @@ namespace Quote2020
         public static bool UpdateKeywords(List<Quote> quotes)
         {
             SqliteConnection conn = Connect();
+            if (conn == null) return false;
             conn.Open();
             SqliteTransaction trans = conn.BeginTransaction();
 
@@ -185,6 +194,7 @@ namespace Quote2020
         public static bool UpdateTopics(List<Quote> quotes)
         {
             SqliteConnection conn = Connect();
+            if (conn == null) return false;
             conn.Open();
             SqliteTransaction trans = conn.BeginTransaction();
             foreach (var quote in quotes)
@@ -297,6 +307,9 @@ namespace Quote2020
         {
             zresults = new List<Quote>();
             SqliteConnection conn = Connect();
+            if (conn == null) {
+                return false;
+            }
             conn.Open();
             try
             {
@@ -318,7 +331,7 @@ namespace Quote2020
                 results.Close();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -332,6 +345,7 @@ namespace Quote2020
         public static Quote CreateQuoteMin(Quote quote)
         {
             SqliteConnection conn = Connect();
+            if (conn == null) return new Quote();
             conn.Open();
             try
             {
@@ -373,6 +387,7 @@ namespace Quote2020
         public static bool UpdateQuoteMin(Quote quote)
         {
             SqliteConnection conn = Connect();
+            if (conn == null) return false;
             conn.Open();
             try
             {
@@ -407,8 +422,13 @@ namespace Quote2020
             {
                 DataSource = DataFiles.GetDbFile()
             };
-
-            return new SqliteConnection(bldr.ToString());
+            try
+            {
+                return new SqliteConnection(bldr.ToString());
+            } catch
+            {
+                return null;
+            };
         }
 
         static bool DropKeywords(List<Quote> quotes)
