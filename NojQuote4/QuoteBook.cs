@@ -345,7 +345,7 @@ namespace Quote2020
         public static Quote CreateQuoteMin(Quote quote)
         {
             SqliteConnection conn = Connect();
-            if (conn == null) return new Quote();
+            if (conn == null) return null;
             conn.Open();
             try
             {
